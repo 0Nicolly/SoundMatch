@@ -11,17 +11,66 @@
 <body>
   <h1>Sound Match</h1>
 
-  <form action="/search" method="GET">
+  <form action="/" method="GET">
+    <div id="trackContainer">
+      <input type="text" name="track" placeholder="Nome da música">
+    </div>
 
-    <input type="text" name="track" placeholder="Música" required>
+    <div id="artistContainer">
+      <input type="text" name="artist" placeholder="Nome do artista">
+    </div>
 
-    <input type="text" name="artist" placeholder="Artista" required>
+        <select name="type" id="type">
+          <option value="track">Música</option>
+          <option value="artist">Artista</option>
+        </select>
 
-    <button type="submit">
-      Buscar
-    </button>
+        <button type="submit">
+          Buscar
+        </button>
+      </div>
+    </div>
 
   </form>
+
+  <% if (results && results.length> 0) { %>
+    <h2>Resultados</h2>
+    <% results.forEach(result=> { %>
+      <div>
+        <h3>
+          <%= result.name %>
+        </h3>
+        <% if (result.artist) { %>
+          <p>
+            <%= result.artist %>
+          </p>
+          <% } %>
+            <p>
+              Similaridade:
+              <%= result.match %>
+            </p>
+      </div>
+      <% }) %>
+  <% } %>
+
+  <script>
+    const typeSelect = document.getElementById("type");
+    const trackContainer = document.getElementById("trackContainer");
+
+    function updateFields() {
+
+      if (typeSelect.value === "artist") {
+        trackContainer.style.display = "none";
+      } else {
+        trackContainer.style.display = "block";
+      }
+    }
+    typeSelect.addEventListener(
+      "change",
+      updateFields
+    );
+    updateFields();
+  </script>
 </body>
 
 </html>
