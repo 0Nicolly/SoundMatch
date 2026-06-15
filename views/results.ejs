@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        SoundMatch
+    </title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+    <h1>Resultados</h1>
+
+    <% tracks.forEach(track=> { %>
+
+        <div>
+
+            <h3>
+                <%= track.name %>
+            </h3>
+
+            <p>
+                <%= track.artist %>
+            </p>
+
+            <p>
+                Similaridade:
+                <%= track.match %>
+            </p>
+
+        </div>
+
+        <% }) %>
+</body>
+
+</html>

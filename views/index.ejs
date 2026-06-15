@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <h1>Sound Match</h1>
+
+  <form action="/search" method="GET">
+
+    <input type="text" name="track" placeholder="Música" required>
+
+    <input type="text" name="artist" placeholder="Artista" required>
+
+    <button type="submit">
+      Buscar
+    </button>
+
+  </form>
+</body>
+
+</html>
