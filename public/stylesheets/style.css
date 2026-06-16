@@ -1,8 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Sanchez:ital@0;1&display=swap');
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #081825;
+  margin: 0;
 }
 
-a {
-  color: #00B7FF;
+.navbar-content {
+  font-family: 'Sanchez';
+  background-color: #081825;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  color: white;
+  font-size: 18px;
+  padding: 10px 50px;
+  display: flex;
+  flex-direction: row;
+  position: sticky;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.navbar-title i {
+  font-size: 24px;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.navbar-title i {
+  display: inline-block;
+  animation: spin 3s linear infinite;
+}
+
+.navbar-links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.navbar-link-style {
+  text-decoration: none;
+  color: white;
+}
+
+@media (max-width: 720px) {
+  .navbar-content {
+    flex-direction: column;
+  }
+}
+
+/* Animações navbar links */
+.navbar-link-style {
+  position: relative;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.navbar-link-style:hover {
+  color: #63A7D7;
+}
+
+.navbar-link-style::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: #63A7D7;
+  transition: 0.3s ease;
+}
+
+.navbar-link-style:hover::after {
+  width: 100%;
+}
+
+.text-title {
+  color:#63A7D7;
+  font-family: 'Sanchez';
+}
+
+.text-subtitle {
+  font-family: 'Sanchez';
+  color: #081825;
+  font-weight: 800;
+}
+
+.container-main {
+  background: #C1E3FC;
+}
+
+.form-input,
+.form-select {
+  background-color: #081825;
+  color: #ffffff;
+  font-family: 'Sanchez';
+}
+.form-input::placeholder {
+  color: #617f97;
+}
+
+.form-input:focus,
+.form-select:focus {
+  background-color: #081825;
+  color: #fff;
+  border-color: #333;
+  box-shadow: none;
+}
+
+.btn-form {
+  background-color: #081825;
+}
+
+.btn-form i {
+  font-size: 16px;
+}
+
+.btn-form:hover {
+  background-color: #122d42;
+}
+
+.card-style {
+  /* min-width: 400px; */
+  overflow: hidden;
+  background: #c1e3fc21;
+}
+
+.card-text {
+  color: #C1E3FC;
+}
+
+.card-match {
+  color: #C1E3FC;
+  border: 1px solid #C1E3FC;
+  padding: 5px;
+  border-radius: 2px;
+}
+
+.search-info {
+  color: #ffffff;
+  font-family: 'Sanchez';
+  font-size: 18px;
 }

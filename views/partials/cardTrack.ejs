@@ -1,0 +1,26 @@
+<div class="col-auto">
+    <div class="card card-style text-light border-0 h-100 rounded-5">
+      <div class="card-body d-flex gap-3">
+
+        <img
+          src="<%= track.image %>"
+          class="rounded"
+          width="120"
+          height="120"
+          alt="Capa">
+
+        <div>
+          <h5 class="fw-bold card-text"><%= track.name %></h5>
+
+          <p class="text-secondary mb-2">
+            <%= track.artist %>
+          </p>
+
+          <span class="badge card-match">
+            Similaridade: <%= Math.round(track.match * 100) %>%
+          </span>
+        </div>
+
+      </div>
+    </div>
+</div>

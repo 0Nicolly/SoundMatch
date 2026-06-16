@@ -1,76 +1,77 @@
-<!DOCTYPE html>
-<html>
+<%- include('./partials/navbar') %>
 
-<head>
-  <title>
-    <%= title %>
-  </title>
-  <link rel='stylesheet' href='/stylesheets/style.css' />
-</head>
+  <div class="container mt-3">
+    <div class="container-main card p-5 text-center shadow-lg rounded-5">
 
-<body>
-  <h1>Sound Match</h1>
+      <h1 class="text-title fw-bold">Descubra músicas parecidas</h1>
 
-  <form action="/" method="GET">
-    <div id="trackContainer">
-      <input type="text" name="track" placeholder="Nome da música">
-    </div>
+      <p class="text-subtitle">
+        Digite uma música ou artista e encontre novas recomendações
+      </p>
 
-    <div id="artistContainer">
-      <input type="text" name="artist" placeholder="Nome do artista">
-    </div>
+      <form action="/" method="GET" class="d-flex justify-content-center gap-2 mt-3 flex-wrap">
+        <div id="trackContainer">
+          <input type="text" class="form-input form-control w-auto" name="track" placeholder="Nome da música">
+        </div>
 
-        <select name="type" id="type">
+        <div id="artistContainer">
+          <input type="text" class="form-input form-control w-auto" name="artist" placeholder="Nome do artista">
+        </div>
+
+        <select class="form-select w-auto form-filter" name="type" id="type">
           <option value="track">Música</option>
           <option value="artist">Artista</option>
         </select>
 
-        <button type="submit">
-          Buscar
+        <button type="submit" class="btn-form btn btn-dark rounded-circle">
+          <i class="bi bi-search"></i>
         </button>
+      </form>
+    </div>
+  </div>
+  </main>
+
+  <body>
+    <div class="container mt-4">
+      <div class="row g-4 justify-content-center">
+        <% if(type==='track' ) { %>
+          <span class="search-info">Músicas parecidas com: "<%= track %>"</span>
+          <% results.forEach(track=> { %>
+            <div class="col-md-5">
+              <%- include('partials/cardTrack', { track }) %>
+            </div>
+          <% }) %>
+        <% } %>
+        
+        <% if(type==='artist' ) { %>
+          <span class="search-info">Artistas parecidos com: "<%= artist %>" </span>
+          <% results.forEach(artist=> { %>
+            <div class="col-md-5">
+              <%- include('partials/cardArtist', { artist }) %>
+            </div>
+          <% }) %>
+        <% } %>
+
       </div>
     </div>
+    <script>
+      const typeSelect = document.getElementById("type");
+      const trackContainer = document.getElementById("trackContainer");
 
-  </form>
+      function updateFields() {
 
-  <% if (results && results.length> 0) { %>
-    <h2>Resultados</h2>
-    <% results.forEach(result=> { %>
-      <div>
-        <h3>
-          <%= result.name %>
-        </h3>
-        <% if (result.artist) { %>
-          <p>
-            <%= result.artist %>
-          </p>
-          <% } %>
-            <p>
-              Similaridade:
-              <%= result.match %>
-            </p>
-      </div>
-      <% }) %>
-  <% } %>
-
-  <script>
-    const typeSelect = document.getElementById("type");
-    const trackContainer = document.getElementById("trackContainer");
-
-    function updateFields() {
-
-      if (typeSelect.value === "artist") {
-        trackContainer.style.display = "none";
-      } else {
-        trackContainer.style.display = "block";
+        if (typeSelect.value === "artist") {
+          trackContainer.style.display = "none";
+        } else {
+          trackContainer.style.display = "block";
+        }
       }
-    }
-    typeSelect.addEventListener(
-      "change",
-      updateFields
-    );
-    updateFields();
-  </script>
-</body>
+      typeSelect.addEventListener(
+        "change",
+        updateFields
+      );
+      updateFields();
+    </script>
+  </body>
 
-</html>
+  </html>

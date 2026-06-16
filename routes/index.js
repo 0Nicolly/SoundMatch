@@ -28,7 +28,9 @@ router.get("/", async (req, res) => {
   res.render("index", {
     title: "Sound Match",
     results,
-    type
+    type,
+    track,
+    artist
   });
 
 });

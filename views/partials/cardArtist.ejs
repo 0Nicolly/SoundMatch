@@ -1,0 +1,22 @@
+<div class="col-auto">
+    <div class="card card-style text-light border-0 h-100 rounded-4">
+      <div class="card-body d-flex gap-3">
+
+        <img
+          src="<%= artist.image %>"
+          class="rounded-circle"
+          width="120"
+          height="120"
+          alt="Artista">
+
+        <div>
+          <h3 class="fw-bold card-text"><%= artist.name %></h3>
+
+          <span class="badge card-match">
+            Similaridade: <%= Math.round(artist.match * 100) %>%
+          </span>
+        </div>
+
+      </div>
+    </div>
+</div>
