@@ -200,3 +200,9 @@ body {
   display: inline-block;
   animation: spin 3s linear infinite;
 }
+
+@media (max-width: 768px) {
+  .vinil-img {
+    width: 150px;
+  }
+}
