@@ -14,7 +14,9 @@ async function getSimilarTracks(track, artist) {
         }
         );
 
-        return response.data.similartracks.track.map(
+        return response.data.similartracks.track
+        .filter(track => Number(track.match) >= 0.20)
+        .map(
             track => ({
                 name: track.name,
                 artist: track.artist.name,
@@ -40,7 +42,9 @@ async function getSimilarArtists(artist) {
             }
         });
 
-        return response.data.similarartists.artist.map(
+        return response.data.similarartists.artist
+        .filter(artist => Number(artist.match) >= 0.20)
+        .map(
             artist => ({
                 name: artist.name,
                 match: artist.match
