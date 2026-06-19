@@ -160,3 +160,9 @@ body {
   max-width: 280px;
   height: 40px;
 }
+
+@media (max-width: 768px) {
+  .audio-preview {
+    width: 180px;
+  }
+}
