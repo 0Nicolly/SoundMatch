@@ -166,3 +166,37 @@ body {
     width: 180px;
   }
 }
+
+.about-info {
+  font-family: 'Sanchez';
+}
+
+.about-title {
+  color:#fff;
+}
+
+.about-text {
+  color: #C1E3FC
+}
+
+.vinil-img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+}
+
+.vinil-img-home {
+  width: 100%;
+  max-width: 80px;
+  height: auto;
+}
+
+.vinil-img {
+  display: inline-block;
+  animation: spin 3s linear infinite;
+}
+
+.vinil-img-home {
+  display: inline-block;
+  animation: spin 3s linear infinite;
+}
