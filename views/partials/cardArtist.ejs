@@ -3,14 +3,14 @@
       <div class="card-body d-flex gap-3">
 
         <img
-          src="<%= artist.image %>"
+          src="<%= artist.picture || '/images/default-artist.jpg' %>"
           class="rounded-circle"
           width="120"
           height="120"
-          alt="Artista">
+          alt="Foto de <%= artist.name %>">
 
         <div>
-          <h3 class="fw-bold card-text"><%= artist.name %></h3>
+          <h5 class="fw-bold card-text"><%= artist.name %></h5>
 
           <span class="badge card-match">
             Similaridade: <%= Math.round(artist.match * 100) %>%
